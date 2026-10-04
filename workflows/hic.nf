@@ -258,7 +258,7 @@ workflow HIC {
   //
   // MODULE: MultiQC
   //
-  if (!params.skip_multiqc){
+  if (!params.skip_multiqc && !params.skip_fastqc && !params.skip_hicpro) {
     workflow_summary    = WorkflowHic.paramsSummaryMultiqc(workflow, summary_params)
     ch_workflow_summary = Channel.value(workflow_summary)
 
