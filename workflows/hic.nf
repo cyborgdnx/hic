@@ -167,10 +167,12 @@ workflow HIC {
   //
   // MODULE: Run FastQC
   //
-  FASTQC (
-    INPUT_CHECK.out.reads
-  )
-  ch_versions = ch_versions.mix(FASTQC.out.versions)
+  if (!params.skip_fastqc){
+    FASTQC (
+      INPUT_CHECK.out.reads
+    )
+    ch_versions = ch_versions.mix(FASTQC.out.versions)
+  }
 
   //
   // SUB-WORFLOW: HiC-Pro
