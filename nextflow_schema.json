@@ -339,6 +339,10 @@
                 "skip_multiqc": {
                     "type": "boolean",
                     "description": "Do not generate MultiQC report"
+                },
+                "remove_software_versions": {
+                    "type": "boolean",
+                    "description": "Do not generate software version information in the MultiQC report"
                 }
             }
         },

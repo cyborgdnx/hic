@@ -251,9 +251,12 @@ workflow HIC {
   //
   // SOFTWARE VERSION
   //
-  CUSTOM_DUMPSOFTWAREVERSIONS(
-    ch_versions.unique().collectFile(name: 'collated_versions.yml')
-  )
+
+  if (!params.remove_software_versions){
+    CUSTOM_DUMPSOFTWAREVERSIONS(
+      ch_versions.unique().collectFile(name: 'collated_versions.yml')
+    )
+  }
 
   //
   // MODULE: MultiQC
